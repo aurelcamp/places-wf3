@@ -17,4 +17,12 @@ export class PlacesPage implements OnInit {
   ngOnInit() {
   }
 
+  share(place: any) {
+    console.log(place);
+  }
+
+  delete(place: any) {
+    this.places = this.places.filter((p: any) => p !== place);
+  }
+
 }
