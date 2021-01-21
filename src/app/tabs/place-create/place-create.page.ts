@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Place } from 'src/app/models/place';
 
 @Component({
   selector: 'app-place-create',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceCreatePage implements OnInit {
 
+  place: Place = new Place();
+
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  validate() {
+    console.log(this.place);
   }
 
 }

@@ -5,7 +5,28 @@
 </ion-header>
 
 <ion-content>
-  <div class="place-image-container">
-    <ion-img src="./assets/images/default_image.png"></ion-img>
+  <ion-img [src]="place.imageUrl"></ion-img>
+
+  <ion-item>
+    <ion-label position="floating">Titre</ion-label>
+    <ion-input [(ngModel)]="place.title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input [(ngModel)]="place.description" placeholder="Entrer une description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select [(ngModel)]="place.type" okText="OK" cancelText="Annuler">
+      <ion-select-option value="Paysage">Paysage</ion-select-option>
+      <ion-select-option value="Architecture">Architecture</ion-select-option>
+      <ion-select-option value="Autre">Autre</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <div class="ion-text-center ion-padding-top">
+    <ion-button color="primary" (click)="validate()">Valider</ion-button>
   </div>
 </ion-content>
