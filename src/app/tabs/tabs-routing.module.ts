@@ -6,8 +6,15 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
-    component: TabsPage
-  }
+    component: TabsPage,
+    children: [
+      { path: '', redirectTo: 'places', pathMatch: 'full'},
+      {
+        path: 'places',
+        loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
+      }
+    ]
+  },
 ];
 
 @NgModule({
