@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlaceService } from 'src/app/services/place.service';
 
 @Component({
   selector: 'app-places',
@@ -12,9 +13,13 @@ export class PlacesPage implements OnInit {
     { imageUrl: 'http://les-combien.com/images/rooms/egypt.jpg', title: 'Pharaon', description: 'Attention à la malédiction'}
   ]
 
-  constructor() { }
+  constructor(
+    private placeService: PlaceService,
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const places = await this.placeService.getPlaces();
+    console.log(places);
   }
 
   share(place: any) {

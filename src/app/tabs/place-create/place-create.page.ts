@@ -19,6 +19,7 @@ export class PlaceCreatePage implements OnInit {
 
   validate() {
     console.log(this.place);
+    console.log(JSON.stringify(this.place));
   }
 
 }
