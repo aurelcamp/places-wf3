@@ -7,6 +7,8 @@
 <ion-content>
   <div *ngIf="showMap" style="height: 100%; width:100%;" 
     leaflet 
-    [leafletOptions]="options">
+    [leafletOptions]="options"
+    [leafletLayers]="layers"
+    [(leafletCenter)]="center">
   </div>
 </ion-content>
