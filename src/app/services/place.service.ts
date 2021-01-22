@@ -11,7 +11,7 @@ export class PlaceService {
 
   constructor() { }
 
-  async getPlaces() {
+  async getPlaces(): Promise<Place[]> {
     const places = await Storage.get({ key: 'places' });
     return JSON.parse(places.value) || [];
   }

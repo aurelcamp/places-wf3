@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Place, placeTypes } from 'src/app/models/place';
 import { PlaceService } from 'src/app/services/place.service';
 
@@ -13,7 +14,8 @@ export class PlaceCreatePage implements OnInit {
   placeTypes = placeTypes;
 
   constructor(
-    private placeService: PlaceService
+    private placeService: PlaceService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -22,6 +24,7 @@ export class PlaceCreatePage implements OnInit {
 
   validate() {
     this.placeService.addPlace(this.place);
+    this.router.navigate(['/tabs/places']);
   }
 
 }
