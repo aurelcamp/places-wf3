@@ -32,8 +32,9 @@ export class PlacesPage implements OnInit {
     console.log(place);
   }
 
-  delete(place: any) {
-    this.places = this.places.filter((p: any) => p !== place);
+  async delete(place: Place) {
+    await this.placeService.removePlace(place);
+    this.places = await this.placeService.getPlaces();
   }
 
 }
