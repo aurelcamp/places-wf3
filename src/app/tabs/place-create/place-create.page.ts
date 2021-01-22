@@ -5,7 +5,7 @@ import { Place, placeTypes } from 'src/app/models/place';
 import { PlaceService } from 'src/app/services/place.service';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 
-const { Camera } = Plugins;
+const { Camera, Geolocation } = Plugins;
 
 @Component({
   selector: 'app-place-create',
@@ -81,8 +81,13 @@ export class PlaceCreatePage implements OnInit {
     // Can be set to the src of an image now
   }
 
-  getLocation() {
-    console.log(this.enableLocation);
+  async getLocation() {
+    if (this.enableLocation) {
+      const coordinates = await Geolocation.getCurrentPosition();
+      console.log('Current', coordinates);
+    } else {
+      console.log('ne pas demander les coordonnées');
+    }
   }
 
 }
