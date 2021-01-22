@@ -22,6 +22,10 @@ export class PlaceCreatePage implements OnInit {
     
   }
 
+  ionViewDidEnter() {
+    this.place = new Place();
+  }
+
   validate() {
     this.placeService.addPlace(this.place);
     this.router.navigate(['/tabs/places']);
