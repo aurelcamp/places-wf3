@@ -83,10 +83,18 @@ export class PlaceCreatePage implements OnInit {
 
   async getLocation() {
     if (this.enableLocation) {
-      const coordinates = await Geolocation.getCurrentPosition();
-      console.log('Current', coordinates);
+      try {
+        const coordinates = await Geolocation.getCurrentPosition();
+        this.place.position = {
+          latitude: coordinates.coords.latitude,
+          longitude: coordinates.coords.longitude
+        }
+      } catch (e) {
+        // il y a une erreur
+      }
+      // console.log('Current', coordinates);
     } else {
-      console.log('ne pas demander les coordonnées');
+      this.place.position = null;
     }
   }
 
