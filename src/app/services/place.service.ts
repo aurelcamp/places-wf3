@@ -24,4 +24,13 @@ export class PlaceService {
       value: JSON.stringify(places)
     });
   }
+
+  async removePlace(place: Place) {
+    let places = await this.getPlaces();
+    places = places.filter((p: Place) => p.id !== place.id);
+    await Storage.set({
+      key: 'places',
+      value: JSON.stringify(places)
+    });
+  }
 }
