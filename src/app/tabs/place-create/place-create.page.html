@@ -5,26 +5,30 @@
 </ion-header>
 
 <ion-content>
-  <ion-img [src]="place.imageUrl"></ion-img>
+  <form #placeForm="ngForm" (submit)="validate()">
+    <ion-img [src]="place.imageUrl"></ion-img>
 
-  <ion-item>
-    <ion-label position="floating">Titre</ion-label>
-    <ion-input [(ngModel)]="place.title"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Titre</ion-label>
+      <ion-input [(ngModel)]="place.title" name="title" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Description</ion-label>
-    <ion-input [(ngModel)]="place.description" placeholder="Entrer une description"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-input [(ngModel)]="place.description" name="description" placeholder="Entrer une description" required>
+      </ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Type</ion-label>
-    <ion-select [(ngModel)]="place.type" okText="OK" cancelText="Annuler">
-      <ion-select-option *ngFor="let type of placeTypes" [value]="type">{{ type }}</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="place.type" name="type" okText="OK" cancelText="Annuler" required>
+        <ion-select-option *ngFor="let type of placeTypes" [value]="type">{{ type }}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <div class="ion-text-center ion-padding-top">
-    <ion-button color="primary" (click)="validate()">Valider</ion-button>
-  </div>
+    <div class="ion-text-center ion-padding-top">
+      <ion-button color="primary" type="submit" [disabled]="!placeForm.valid">Valider
+      </ion-button>
+    </div>
+  </form>
 </ion-content>
