@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from 'src/app/models/place';
 import { PlaceService } from 'src/app/services/place.service';
+import { Plugins } from '@capacitor/core';
+
+const { Share } = Plugins;
 
 @Component({
   selector: 'app-places',
@@ -28,8 +31,14 @@ export class PlacesPage implements OnInit {
     this.places = await this.placeService.getPlaces();
   }
 
-  share(place: any) {
+  async share(place: Place) {
     console.log(place);
+    let shareRet = await Share.share({
+      title: place.title,
+      text: place.description,
+      url: place.imageUrl,
+      dialogTitle: 'Partager'
+    });
   }
 
   async delete(place: Place) {
