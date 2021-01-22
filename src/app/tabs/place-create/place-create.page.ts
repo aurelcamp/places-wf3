@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Place } from 'src/app/models/place';
+import { Place, placeTypes } from 'src/app/models/place';
 
 @Component({
   selector: 'app-place-create',
@@ -9,6 +9,7 @@ import { Place } from 'src/app/models/place';
 export class PlaceCreatePage implements OnInit {
 
   place: Place = new Place();
+  placeTypes = placeTypes;
 
   constructor() { }
 
