@@ -6,6 +6,12 @@
 
 <ion-content>
   <form #placeForm="ngForm" (submit)="validate()">
+    <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="presentActionSheet()">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
     <ion-img [src]="place.imageUrl"></ion-img>
 
     <ion-item>
