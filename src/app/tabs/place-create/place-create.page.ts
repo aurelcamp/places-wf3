@@ -67,7 +67,7 @@ export class PlaceCreatePage implements OnInit {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Uri,
-      source: CameraSource.Camera
+      source: source
     });
     // image.webPath will contain a path that can be set as an image src.
     // You can access the original file using image.path, which can be
