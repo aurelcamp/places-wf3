@@ -17,11 +17,11 @@ const routes: Routes = [
         path: 'place-create',
         loadChildren: () => import('./place-create/place-create.module').then( m => m.PlaceCreatePageModule)
       },
+      {
+        path: 'map',
+        loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+      },
     ]
-  },
-  {
-    path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   },
 ];
 
