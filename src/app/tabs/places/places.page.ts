@@ -36,7 +36,7 @@ export class PlacesPage implements OnInit {
     let shareRet = await Share.share({
       title: place.title,
       text: place.description,
-      url: place.imageUrl,
+      url: place.pathUrl,
       dialogTitle: 'Partager'
     });
   }

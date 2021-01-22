@@ -17,6 +17,8 @@ export class PlaceCreatePage implements OnInit {
   place: Place = new Place();
   placeTypes = placeTypes;
 
+  enableLocation = false;
+
   constructor(
     private placeService: PlaceService,
     private router: Router,
@@ -75,7 +77,12 @@ export class PlaceCreatePage implements OnInit {
     // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
     console.log(image);
     this.place.imageUrl = image.webPath;
+    this.place.pathUrl = image.path;
     // Can be set to the src of an image now
+  }
+
+  getLocation() {
+    console.log(this.enableLocation);
   }
 
 }

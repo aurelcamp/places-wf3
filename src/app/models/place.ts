@@ -5,6 +5,7 @@ export class Place {
   title: string;
   description: string;
   imageUrl: string;
+  pathUrl: string;
   type: string;
 
   constructor() {

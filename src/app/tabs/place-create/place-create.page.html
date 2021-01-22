@@ -15,6 +15,11 @@
     <ion-img [src]="place.imageUrl"></ion-img>
 
     <ion-item>
+      <ion-toggle [(ngModel)]="enableLocation" name="enableLocation" (ionChange)="getLocation()"></ion-toggle>
+      <ion-label>Lier ma position gps</ion-label>
+    </ion-item>
+
+    <ion-item>
       <ion-label position="floating">Titre</ion-label>
       <ion-input [(ngModel)]="place.title" name="title" required></ion-input>
     </ion-item>
